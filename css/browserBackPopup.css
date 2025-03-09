@@ -1,0 +1,142 @@
+.js-browser-back-popup {
+  opacity: 0;
+  visibility: hidden;
+  transition: all ease 0.3s;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100vw;
+  height: 100vh;
+}
+.js-browser-back-popup.show {
+  opacity: 1;
+  visibility: visible;
+}
+.js-browser-back-popup.showed {
+  opacity: 0!important;
+  visibility: hidden!important;
+}
+.js-browser-back-popup .overlay{
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+}
+.js-browser-back-popup figure {
+  width: 400px;
+  height: 337px;
+}
+.js-browser-back-popup figure img{
+  box-shadow: 3px 3px 15px -1px rgba(0, 0, 0, 0.35);
+}
+.js-browser-back-popup a {
+  display: inline-block;
+  width: 400px;
+  height: 337px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+@media (min-width: 767px) {
+  .js-browser-back-popup figure.sp {
+    display: none;
+  }
+}
+@media (max-width: 766px) {
+  .js-browser-back-popup figure.pc {
+    display: none;
+  }
+  .js-browser-back-popup figure {
+    width: 100%;
+    height: auto
+  }
+  .js-browser-back-popup a {
+    display: inline-block;
+    width: 80%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.js-browser-back-popup figure img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.js-close-popup {
+  width: 32px;
+  height: 32px;
+  background-color: #000;
+  border-radius: 32px;
+  border: none;
+  position: absolute;
+  left: 430px;
+  top: 40px;
+  z-index: 10;
+  cursor: pointer;
+}
+.js-close-popup::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  height: 1px;
+  width: 20px;
+  background-color: #fff;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform-origin:0;
+  transform: rotate(45deg) translate(-50%, -50%);
+}
+.js-close-popup::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  height: 1px;
+  width: 20px;
+  background-color: #fff;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform-origin:0;
+  transform: rotate(-45deg) translate(-50%, -50%);
+}
+
+@media (max-width: 766px) {
+  .js-close-popup {
+    width: 8vw;
+    height: 8vw;
+    border-radius: 8vw;
+    left: auto;
+    right: 3%;
+    top: calc(50% - 42vw * 0.43);
+    transform: translate(-50%, -50%);
+  }
+  .js-close-popup::before {
+    width: 5vw;
+  }
+  .js-close-popup::after {
+    width: 5vw;
+  }
+}
+
+.js-browser-back-popup.timeout {
+  height: fit-content;
+  bottom: 0;
+  top: unset;
+}
+.js-browser-back-popup.timeout .overlay {
+  display: flex;
+  justify-content: center;
+  background-color: unset;
+}
+.js-browser-back-popup.timeout a {
+  transform: unset;
+  position: unset;
+}
+.js-browser-back-popup.timeout .js-close-popup {
+  top: unset;
+}
